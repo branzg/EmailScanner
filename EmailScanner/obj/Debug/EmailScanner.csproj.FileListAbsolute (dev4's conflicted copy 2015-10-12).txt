@@ -1,0 +1,6 @@
+C:\Users\bguild_be\Dropbox\EmailScanner\EmailScanner\bin\Debug\EmailScanner.exe.config
+C:\Users\bguild_be\Dropbox\EmailScanner\EmailScanner\bin\Debug\EmailScanner.exe
+C:\Users\bguild_be\Dropbox\EmailScanner\EmailScanner\bin\Debug\EmailScanner.pdb
+C:\Users\bguild_be\Dropbox\EmailScanner\EmailScanner\obj\Debug\EmailScanner.csprojResolveAssemblyReference.cache
+C:\Users\bguild_be\Dropbox\EmailScanner\EmailScanner\obj\Debug\EmailScanner.exe
+C:\Users\bguild_be\Dropbox\EmailScanner\EmailScanner\obj\Debug\EmailScanner.pdb
