@@ -51,7 +51,7 @@ namespace EmailScanner
                                     if (individualEmailSentence.Contains(individualSearchTerm))
                                     {                                                              
                                         IFileHandler text = factory.GetFileType(extension);
-                                        text.WriteToFile("Search Term: " + individualSearchTerm + "\r\n" + to + "\r\n" + from + "\r\n" + subject + "\r\n" + "Containing Sentence: " + individualEmailSentence + "\r\n\r\n", configFileName);
+                                        text.WriteToFile(individualSearchTerm, to, from, subject, individualEmailSentence, configFileName);
                                     }
                         }
                 }          
