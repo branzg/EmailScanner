@@ -8,6 +8,7 @@ namespace EmailScanner
 {
     class Config
     {
+        FileHandlerFactory factory = new FileHandlerFactory();
         string[] configFileLines = System.IO.File.ReadAllLines("EmailScanner.cfg");
         List<string> emailNamesList = new List<string>();
         public void readConfigEmailList()
@@ -41,11 +42,16 @@ namespace EmailScanner
                             var searchTermsOnThisLine = wordsOnThisLine.Skip(1);
                             string configFileName = wordsOnThisLine.First();
 
+                            Match ex = Regex.Match(configFileName, ".{3}$");
+                            string extension = Convert.ToString(ex);
+
+
                             foreach (string individualEmailSentence in emailSentences)
                                 foreach (string individualSearchTerm in searchTermsOnThisLine)
                                     if (individualEmailSentence.Contains(individualSearchTerm))
-                                    {                                  
-                                        System.IO.File.AppendAllText(configFileName, "Search Term:" + individualSearchTerm + "\n" + to + "\n" + from + "\n" + subject + "\n" + "Containing Sentence: " + individualEmailSentence + "\n\n");                                    
+                                    {                                                              
+                                        IFileHandler text = factory.GetFileType(extension);
+                                        text.WriteToFile("Search Term: " + individualSearchTerm + "\r\n" + to + "\r\n" + from + "\r\n" + subject + "\r\n" + "Containing Sentence: " + individualEmailSentence + "\r\n\r\n", configFileName);
                                     }
                         }
                 }          

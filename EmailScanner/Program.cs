@@ -16,12 +16,6 @@ namespace EmailScanner
             configure.readConfigEmailList();
             configure.SearchEmail();
             
-
-        //    FileHandlerFactory factory = new FileHandlerFactory();
-    
-            //    IFileHandler text = factory.GetFileType(".txt");//filename
-           //     text.WriteToFile("test");       //what writes to said file
-           //     Console.ReadKey();
             }
         }
     }

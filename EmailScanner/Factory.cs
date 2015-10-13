@@ -7,45 +7,47 @@ using System.IO;
 
 namespace EmailScanner
 {   
+
     public interface IFileHandler
     {
-        void WriteToFile(string content);
+        void WriteToFile(string content, string name);
     }
     public class Txt : IFileHandler
     {
-        public void WriteToFile(string content)
+        public void WriteToFile(string content, string name)
         {
-              System.IO.File.AppendAllText(("log.txt"), content); 
+              System.IO.File.AppendAllText((name), content);
+              
         }
     }
     public class Csv : IFileHandler
     {
-        public void WriteToFile(string content)
+        public void WriteToFile(string content, string name)
         {
-            System.IO.File.AppendAllText(("log.csv"), content);
+            System.IO.File.AppendAllText((name), content);
         }
     }
     public class Xml : IFileHandler
     {
-        public void WriteToFile(string content)
+        public void WriteToFile(string content, string name)
         {
-            System.IO.File.AppendAllText(("log.xml"), content);
+            System.IO.File.AppendAllText((name), content);
         }
     }
    public class FileHandlerFactory 
     {
-        public IFileHandler GetFileType(string filename)
+        public IFileHandler GetFileType(string fileExtension)
         {     
-            switch (filename)
+            switch (fileExtension)
             {
-                case ".txt":                 
+                case "txt":                 
                    return new Txt();               
-                case "log.csv":
+                case "csv":
                    return new Csv();
-                case ".xml":
+                case "xml":
                    return new Xml();
                 default:
-                   throw new ApplicationException(string.Format("Log file '{0}' cannot be created", filename));                  
+                   throw new ApplicationException(string.Format("Log file '{0}' cannot be created", fileExtension));                  
             }
         }
     }
