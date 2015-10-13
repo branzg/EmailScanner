@@ -24,7 +24,7 @@ namespace EmailScanner
     {
         public void WriteToFile(string individualSearchTerm, string to, string from, string subject, string individualEmailSentence, string name)
         {
-            System.IO.File.AppendAllText((name), "Search Term, " + individualSearchTerm + ", " + to + ", " + from + ", " + subject + ", " + "Containing Sentence, " + individualEmailSentence + "\r\n");
+            System.IO.File.AppendAllText((name), "Search Term: " + individualSearchTerm + ", " + to + ", " + from + ", " + subject + ", " + "Containing Sentence: " + individualEmailSentence + "\r\n");
         }
     }
     public class Xml : IFileHandler
